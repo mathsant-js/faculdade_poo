@@ -1,6 +1,7 @@
 from disciplina import Disciplina
 
 class Aluno:
+    """Representa o aluno"""
     def __init__(self, nome, matricula, curso):
         self.nome = nome
         self.matricula = matricula
@@ -9,18 +10,21 @@ class Aluno:
         self.notas_por_disciplinas = {}
 
     def matricular(self, disciplina: Disciplina):
+        """Vincula o aluno a uma disciplina"""
         if disciplina not in self.disciplinas:
             self.disciplinas.append(disciplina)
 
         self.notas_por_disciplinas.setdefault(disciplina.nome, [])
 
     def adicionar_nota(self, nota, disciplina: Disciplina):
+        """Adiciona a nota de um aluno em uma disciplina"""
         if disciplina.nome not in self.disciplinas:
             self.matricular(disciplina)
 
         self.notas_por_disciplinas[disciplina.nome].append(nota)
 
     def media_em(self, disciplina: Disciplina) -> float:
+        """Calcula a média do aluno em uma disciplina"""
         notas = self.notas_por_disciplinas.get(disciplina.nome, [])
 
         if not notas:
@@ -29,6 +33,7 @@ class Aluno:
         return sum(notas) / len(notas)
 
     def media_geral(self) -> float:
+        """Calcula a média geral do aluno em todas as disciplinas"""
         medias = []
 
         for disc in self.disciplinas:
@@ -43,6 +48,7 @@ class Aluno:
         return sum(medias) / len(medias)
 
     def exibir_boletim(self):
+        """Exibe boletim completo do aluno"""
         print(f"\nAluno: {self.nome} | Matrícula : {self.matricula} | Curso: {self.curso}")
         print("-" * 80)
 
