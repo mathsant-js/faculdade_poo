@@ -1,6 +1,6 @@
 class Disciplina:
-    def __init__(self, nome, professor):
-        self.nome = nome,
+    def __init__(self, nome: str, professor: str):
+        self.nome = nome
         self.professor = professor
 
     def exibir_informacoes(self):

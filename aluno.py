@@ -44,6 +44,7 @@ class Aluno:
 
     def exibir_boletim(self):
         print(f"\nAluno: {self.nome} | Matrícula : {self.matricula} | Curso: {self.curso}")
+        print("-" * 80)
 
         if not self.disciplinas:
             print("Sem disciplinas matriculadas.")
@@ -54,5 +55,5 @@ class Aluno:
             media = self.media_em(disciplina)
             disciplina.exibir_informacoes()
             print(f"    Notas do aluno em {disciplina.nome}: {notas if notas else '-'}")
-            print(f"    Média do aluno em {disciplina.nome}: {media:.1f}")
+            print(f"    Média do aluno em {disciplina.nome}: {media:.1f}\n")
         print(f"MÉDIA GERAL: {self.media_geral():.1f}")
