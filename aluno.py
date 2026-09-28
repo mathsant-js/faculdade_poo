@@ -2,21 +2,21 @@ from disciplina import Disciplina
 
 class Aluno:
     """Representa o aluno"""
-    def __init__(self, nome, matricula, curso):
+    def __init__(self, nome: str, matricula: str, curso: str) -> None:
         self.nome = nome
         self.matricula = matricula
         self.curso = curso
         self.disciplinas = []
         self.notas_por_disciplinas = {}
 
-    def matricular(self, disciplina: Disciplina):
+    def matricular(self, disciplina: Disciplina) -> None:
         """Vincula o aluno a uma disciplina"""
         if disciplina not in self.disciplinas:
             self.disciplinas.append(disciplina)
 
         self.notas_por_disciplinas.setdefault(disciplina.nome, [])
 
-    def adicionar_nota(self, nota, disciplina: Disciplina):
+    def adicionar_nota(self, nota: float, disciplina: Disciplina) -> None:
         """Adiciona a nota de um aluno em uma disciplina"""
         if disciplina.nome not in self.disciplinas:
             self.matricular(disciplina)
@@ -47,7 +47,7 @@ class Aluno:
 
         return sum(medias) / len(medias)
 
-    def exibir_boletim(self):
+    def exibir_boletim(self) -> None:
         """Exibe boletim completo do aluno"""
         print(f"\nAluno: {self.nome} | Matrícula : {self.matricula} | Curso: {self.curso}")
         print("-" * 80)
