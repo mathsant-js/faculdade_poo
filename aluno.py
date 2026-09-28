@@ -41,3 +41,18 @@ class Aluno:
             return 0.0
 
         return sum(medias) / len(medias)
+
+    def exibir_boletim(self):
+        print(f"\nAluno: {self.nome} | Matrícula : {self.matricula} | Curso: {self.curso}")
+
+        if not self.disciplinas:
+            print("Sem disciplinas matriculadas.")
+            return
+
+        for disciplina in self.disciplinas:
+            notas = self.notas_por_disciplinas.get(disciplina.nome, [])
+            media = self.media_em(disciplina)
+            disciplina.exibir_informacoes()
+            print(f"    Notas do aluno em {disciplina.nome}: {notas if notas else '-'}")
+            print(f"    Média do aluno em {disciplina.nome}: {media:.1f}")
+        print(f"MÉDIA GERAL: {self.media_geral():.1f}")
