@@ -3,5 +3,5 @@ class Disciplina:
         self.nome = nome,
         self.professor = professor
 
-    def exibir_informações(self):
+    def exibir_informacoes(self):
         print(f"Disciplina: {self.nome} | Professor: {self.professor}")
